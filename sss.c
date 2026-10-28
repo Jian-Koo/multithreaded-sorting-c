@@ -23,7 +23,7 @@ int readFile(char* pFileName, int pArray[], int* pArraySize)
     }
 
     /* Read the opened file and write the integers into the array while incrementing the arraySize */
-    while (fscanf(file, "%d", &pArray[*pArraySize]) != EOF && *pArraySize < MAX_SIZE_ARRAY) 
+    while (*pArraySize < MAX_SIZE_ARRAY && fscanf(file, "%d", &pArray[*pArraySize]) == 1)
     {
         (*pArraySize)++;
     }
